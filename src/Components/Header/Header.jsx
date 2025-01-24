@@ -3,7 +3,7 @@ import headerCSS from './../Header/Header.module.css'
 
 function Header () {
     return (
-        <div className={headerCSS.Header_wrapper}>
+        <div className={headerCSS.Header_wrapper} id="home">
             <small>Traditional & Hygiene</small>
             <h1>For The <span>Enjoyment</span> <br/> of Scrumptious Fare</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ducimus voluptatibus ad, dicta quas itaque iusto sunt earum, nisi recusandae aliquid porro perferendis quibusdam, mollitia ullam odio laborum qui. Molestias.</p>

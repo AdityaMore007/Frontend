@@ -12,7 +12,7 @@ import imgitalian2 from "./../../assets/macaroni.jpeg";
 
 function Menu() {
   return (
-    <div className={`${menuCSS.Menu_wrapper} section`}>
+    <div className={`${menuCSS.Menu_wrapper} section`} id="menu">
       <small className="section_title">From Our Menu</small>
       <h1>
         Our <span>Special Offer</span>

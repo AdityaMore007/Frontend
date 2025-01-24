@@ -6,7 +6,7 @@ import aboutImg2 from './../../assets/burger1.webp'
 
 function About () {
   return (
-    <div className={`${aboutCSS.About_wrapper} section`}>
+    <div className={`${aboutCSS.About_wrapper} section`} id='about'>
         <div className={aboutCSS.aboutImg}>
             <img src={aboutImg1} alt="about-image" />
             

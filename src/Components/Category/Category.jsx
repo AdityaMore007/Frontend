@@ -8,7 +8,7 @@ import categoryImg4 from './../../assets/menu-img2.jpg'
 
 function Category () {
   return (
-    <div className={`${categoryCSS.Category_wrapper} section`}>
+    <div className={`${categoryCSS.Category_wrapper} section`} id='categories'>
         <small className='section_title'>Our Delicious Food Categories</small>
         <h1>Our <span>Special Categories</span></h1>
 

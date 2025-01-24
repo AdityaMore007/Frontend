@@ -11,6 +11,8 @@
 
   font-family:'Jost' ;
 
+  scroll-behavior: smooth;
+
 }
 
 body{

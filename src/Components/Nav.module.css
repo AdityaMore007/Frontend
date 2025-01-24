@@ -13,6 +13,7 @@
 
 .navSticky{
     box-shadow: 0 5px 2px rgba(0, 0, 0, 0.1);
+    background-color: #1e1e1e;
 }
 
 .Nav_Wrapper .logo a , .Nav_Wrapper .logo i{
