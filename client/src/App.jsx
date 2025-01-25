@@ -23,7 +23,7 @@ function App() {
         <Route path="/testimonial" element={<Testimonial />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dish" element={<DishPage />} />
-        <Route path="/cart" element={<CartPage />} />
+        {/* <Route path="/cart" element={<CartPage userId={userId} />} /> */}
 
         {/* <Route exact path="/dish/:id" render={(props) => (
           <DishPage id={props.match.params.id}/>

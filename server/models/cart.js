@@ -1,20 +1,28 @@
-import {Schema, Model} from "mongoose"
+import mongoose from "mongoose";
 
-const cartSchema = new Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+const { Schema, model } = mongoose;
+
+const CartSchema = new Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
     items: [
       {
-        dish: { type: mongoose.Schema.Types.ObjectId, ref: 'Dish' },
-        quantity: { type: Number, required: true },
+        dishId: { type: mongoose.Schema.Types.ObjectId, ref: "Dish", required: true },
+        quantity: { type: Number, default: 1 },
       },
     ],
-    totalPrice: { type: Number, required: true },
-    status: { type: String, default: 'pending' }, // e.g., 'pending', 'completed'
-    createdAt: { type: Date, default: Date.now },
-    deliveryAddress: String,
-},{timestamps:true})
+    totalPrice: { type: Number, default: 0 },
+    totalCalories: { type: Number, default: 0 },
+    totalPrepTime: { type: Number, default: 0 },
+    status: { type: String, default: "Pending" }, // "Pending", "Placed", "Completed", etc.
+  },
+  { timestamps: true }
+);
 
+const Cart = model("Cart", CartSchema);
 
-const Cart = new Model('cart', cartSchema)
-
-export default Cart
+export default Cart;

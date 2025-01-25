@@ -1,4 +1,4 @@
-import {Schema, Model} from "mongoose"
+import {Schema, model} from "mongoose"
 
 const DishSchema = new Schema({
     dishname:{
@@ -26,6 +26,6 @@ const DishSchema = new Schema({
 },{timestamps:true})
 
 
-const Dish = new Model('dish', DishSchema)
+const Dish = new model('dish', DishSchema)
 
 export default Dish

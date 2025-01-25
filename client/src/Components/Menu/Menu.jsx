@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MenuCard from "../Card/Card";
 import menuCSS from "./Menu.module.css"; // Styling
+import apiRequest from "../../utils/apiRequest.js";
 
 // import imgSalad from "../../assets/Salad.jpg";
 // import imgBurger from "../../assets/burger.jpg";
@@ -12,66 +13,77 @@ import menuCSS from "./Menu.module.css"; // Styling
 // import imgItalian2 from "../../assets/italian2.jpg";
 
 // Menu items array
-const menuItems = [
-  {
-    name: "Vegetable Salad",
-    price: 30,
-    description: "BeetRoot and Tomatos, Ricota",
-    // image: imgSalad,
-    altText: "Vegetable Salad",
-  },
-  {
-    name: "Veggie Burger",
-    price: 20,
-    description: "Mayoniese with Cheese",
-    // image: imgBurger,
-    altText: "Veggie Burger",
-  },
-  {
-    name: "Misal Pav",
-    price: 60,
-    description: "Spicy with Extra Butter",
-    // image: imgMisal,
-    altText: "Misal Pav",
-  },
-  {
-    name: "Tandoori Paneer Tikka",
-    price: 50,
-    description: "Indian Spices Special",
-    // image: imgPaneer,
-    altText: "Tandoori Paneer Tikka",
-  },
-  {
-    name: "Punjabi Soya Chap",
-    price: 30,
-    description: "Made with Punjabi Spices",
-    // image: imgSoya,
-    altText: "Punjabi Soya Chap",
-  },
-  {
-    name: "Kadhai Paneer",
-    price: 40,
-    description: "Paneer Specials!!",
-    // image: imgKadhai,
-    altText: "Kadhai Paneer",
-  },
-  {
-    name: "Pasta alla Boscaiola",
-    price: 40,
-    description: "Made with dried mushrooms, tomato sauce",
-    // image: imgItalian1,
-    altText: "Pasta alla Boscaiola",
-  },
-  {
-    name: "Macaroni",
-    price: 40,
-    description: "Bit of sausage & creamy ricotta tomato",
-    // image: imgItalian2,
-    altText: "Macaroni",
-  },
-];
+// const menuItems = [
+//   {
+//     name: "Vegetable Salad",
+//     price: 30,
+//     description: "BeetRoot and Tomatos, Ricota",
+//     // image: imgSalad,
+//     altText: "Vegetable Salad",
+//   },
+//   {
+//     name: "Veggie Burger",
+//     price: 20,
+//     description: "Mayoniese with Cheese",
+//     // image: imgBurger,
+//     altText: "Veggie Burger",
+//   },
+//   {
+//     name: "Misal Pav",
+//     price: 60,
+//     description: "Spicy with Extra Butter",
+//     // image: imgMisal,
+//     altText: "Misal Pav",
+//   },
+//   {
+//     name: "Tandoori Paneer Tikka",
+//     price: 50,
+//     description: "Indian Spices Special",
+//     // image: imgPaneer,
+//     altText: "Tandoori Paneer Tikka",
+//   },
+//   {
+//     name: "Punjabi Soya Chap",
+//     price: 30,
+//     description: "Made with Punjabi Spices",
+//     // image: imgSoya,
+//     altText: "Punjabi Soya Chap",
+//   },
+//   {
+//     name: "Kadhai Paneer",
+//     price: 40,
+//     description: "Paneer Specials!!",
+//     // image: imgKadhai,
+//     altText: "Kadhai Paneer",
+//   },
+//   {
+//     name: "Pasta alla Boscaiola",
+//     price: 40,
+//     description: "Made with dried mushrooms, tomato sauce",
+//     // image: imgItalian1,
+//     altText: "Pasta alla Boscaiola",
+//   },
+//   {
+//     name: "Macaroni",
+//     price: 40,
+//     description: "Bit of sausage & creamy ricotta tomato",
+//     // image: imgItalian2,
+//     altText: "Macaroni",
+//   },
+// ];
 
 const Menu = () => {
+
+
+  const [dishes, setdishes] = useState([])
+  useEffect(()=> {
+    async function getdishes () {
+      const res = await apiRequest.get('/dish');
+      setdishes(res.data)
+    }
+    getdishes()
+  },[])
+
   return (
     <div className={`${menuCSS.Menu_wrapper} section`} id="menu">
       <small className="section_title">From Our Menu</small>
@@ -91,7 +103,7 @@ const Menu = () => {
       </div>
 
       <div className={menuCSS.Menu_cards}>
-        {menuItems.map((item, index) => (
+        {dishes.map((item, index) => (
           <MenuCard
             key={index}
             name={item.name}

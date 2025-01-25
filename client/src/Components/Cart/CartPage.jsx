@@ -1,45 +1,56 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CartPage.css'; // Ensure this CSS file exists
+import apiRequest from '../../utils/apiRequest.js';
 
-const CartPage = () => {
+const CartPage = ({userId}) => {
   // Dummy data for the cart (this can later be replaced by state or context data)
-  const [cartItems, setCartItems] = useState([
-    {
-      name: "Spaghetti Bolognese",
-      price: 12.99,
-      prepTime: 30, // in minutes
-      quantity: 2,
-    },
-    {
-      name: "Margherita Pizza",
-      price: 10.99,
-      prepTime: 20,
-      quantity: 1,
-    },
-  ]);
+  // const [cartItems, setCartItems] = useState([
+  //   {
+  //     name: "Spaghetti Bolognese",
+  //     price: 12.99,
+  //     prepTime: 30, // in minutes
+  //     quantity: 2,
+  //   },
+  //   {
+  //     name: "Margherita Pizza",
+  //     price: 10.99,
+  //     prepTime: 20,
+  //     quantity: 1,
+  //   },
+  // ]);
+
+  const [cart, setCart] = useState(null);
+
+  useEffect(() => {
+    const getCart = async () => {
+      const data = await apiRequest(userId);
+      setCart(data);
+    };
+    getCart();
+  }, [userId]);
 
   const handleRemoveItem = (index) => {
-    const newCartItems = cartItems.filter((_, i) => i !== index);
+    const newCartItems = cart.filter((_, i) => i !== index);
     setCartItems(newCartItems);
   };
 
   const calculateTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
   const calculateTotalTime = () => {
-    return cartItems.reduce((total, item) => total + item.prepTime * item.quantity, 0);
+    return cart.reduce((total, item) => total + item.prepTime * item.quantity, 0);
   };
 
   return (
     <div className="cart-page">
       <div className="cart-container">
         <h1>Your Cart</h1>
-        {cartItems.length === 0 ? (
+        {cart.length === 0 ? (
           <p>Your cart is empty. Please add some dishes to your cart.</p>
         ) : (
           <div className="cart-items">
-            {cartItems.map((item, index) => (
+            {cart.map((item, index) => (
               <div className="cart-item" key={index}>
                 <div className="cart-item-details">
                   <h2>{item.name}</h2>
