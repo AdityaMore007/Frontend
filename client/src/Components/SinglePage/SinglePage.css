@@ -1,0 +1,89 @@
+/* DishPage.css */
+
+/* General Layout */
+.dish-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #121212; /* Dark background for contrast */
+  padding: 20px;
+  margin-top: 100px ;
+  /* min-height: 100vh; */
+}
+
+.dish-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1c1c1c; /* Dark background for the dish container */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  min-height: 300px;
+}
+
+.dish-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 45px;
+  color: #fbe813; /* Highlight color */
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dish-image {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.dish-details {
+  font-size: 18px;
+  color: #ddd; /* Light text color */
+}
+
+.dish-description {
+  margin-bottom: 10px;
+}
+
+.dish-price {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fbe813; /* Highlight price with the same color */
+}
+
+.dish-ingredients,
+.dish-calories,
+.dish-prepTime {
+  margin-bottom: 10px;
+}
+
+.dish-ingredients strong,
+.dish-calories strong,
+.dish-prepTime strong {
+  color: #fbe813; /* Highlight labels */
+}
+
+.dish-ingredients {
+  font-style: italic;
+}
+
+@media screen and (max-width: 900px) {
+  .dish-container {
+    padding: 15px;
+  }
+  .dish-title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dish-title {
+    font-size: 35px;
+  }
+}

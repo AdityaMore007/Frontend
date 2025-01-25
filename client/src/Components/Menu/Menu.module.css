@@ -1,0 +1,86 @@
+.Menu_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #fff;
+}
+
+.Menu_wrapper small {
+    margin-bottom: 0;
+}
+
+.Menu_wrapper h1 {
+    font-family: 'Cormorant Garamond';
+    font-size: 55px;
+    margin-top: 10px;
+}
+.Menu_wrapper  input{
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    padding-left: 15px;
+    font-size:1rem ;
+    font-weight: 500;
+    color: rgba(221, 231, 231, );
+}
+
+.Menu_wrapper h1 span {
+    font-family: 'Cormorant Garamond';
+    color: #fbe813;
+}
+
+.menu_categories {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    border-bottom: 0.5px solid rgba(131, 131, 131, 0.2);
+    padding-bottom: 10px;
+}
+
+.menu_categories small {
+    font-size: 18px;
+    position: relative;
+    margin-left: 20px;
+}
+
+.menu_categories small:hover,
+.menu_categories small:active {
+    color: #fbe813;
+}
+
+
+.menu_categories small::after {
+    position: absolute;
+    content: '';    
+    height: 5px;
+    width: 5px;
+    top: 50%;
+    left: -15px;
+    background-color: #fbe813;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.Menu_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 45px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 900px) {
+    .Menu_cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Menu_wrapper h1 {
+        font-size: 45px;
+    }
+}

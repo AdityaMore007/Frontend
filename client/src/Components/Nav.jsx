@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import navcss from '../Components/Nav.module.css'
+import { Link } from "react-router-dom";
 
 function Nav () {
 
@@ -31,14 +32,17 @@ function Nav () {
                 <i className="ri-restaurant-2-line"></i>
             </div>
             <ul ref={menu}>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+            <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/menu">Menu</Link></li>
+        <li><Link to="/category">Category</Link></li>
+        <li><Link to="/testimonial">Testimonial</Link></li>
+        {/* <li><Link to="/signup">Signup</Link></li> */}
             </ul>
             <div className={navcss.nav_btns}>
-                <button>Book Seat <i className="ri-restaurant-2-line"></i></button>
+            <Link to="/signup">
+                <button>Sign up <i className="ri-restaurant-2-line"></i></button>
+            </Link>
                 <i className="ri-menu-3-line" id={navcss.bar} onClick={menuhandler}></i>
             </div>
         </div>
