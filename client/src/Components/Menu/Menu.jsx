@@ -1,73 +1,73 @@
 import React, { useEffect, useState } from "react";
 import MenuCard from "../Card/Card";
 import menuCSS from "./Menu.module.css"; // Styling
-import apiRequest from "../../utils/apiRequest.js";
+// import apiRequest from "../../utils/apiRequest.js";
 
 // import imgSalad from "../../assets/Salad.jpg";
 // import imgBurger from "../../assets/burger.jpg";
 // import imgMisal from "../../assets/misal.jpeg";
-// import imgPaneer from "../../assets/paneer.jpg";
-// import imgSoya from "../../assets/soya.jpg";
-// import imgKadhai from "../../assets/kadhai.jpg";
-// import imgItalian1 from "../../assets/italian1.jpg";
-// import imgItalian2 from "../../assets/italian2.jpg";
+// import imgPaneer from "../../assets/tandoori.jpg";
+// import imgSoya from "../../assets/Soya-Chaap-2.jpg";
+// import imgKadhai from "../../assets/kadai.jpg";
+// import imgItalian1 from "../../assets/pizza12.jpg";
+// import imgItalian2 from "../../assets/macaroni.jpeg";
 
-// Menu items array
+// // Menu items array
 // const menuItems = [
 //   {
 //     name: "Vegetable Salad",
 //     price: 30,
 //     description: "BeetRoot and Tomatos, Ricota",
-//     // image: imgSalad,
+//     image: imgSalad,
 //     altText: "Vegetable Salad",
 //   },
 //   {
 //     name: "Veggie Burger",
 //     price: 20,
 //     description: "Mayoniese with Cheese",
-//     // image: imgBurger,
+//     image: imgBurger,
 //     altText: "Veggie Burger",
 //   },
 //   {
 //     name: "Misal Pav",
 //     price: 60,
 //     description: "Spicy with Extra Butter",
-//     // image: imgMisal,
+//     image: imgMisal,
 //     altText: "Misal Pav",
 //   },
 //   {
 //     name: "Tandoori Paneer Tikka",
 //     price: 50,
 //     description: "Indian Spices Special",
-//     // image: imgPaneer,
+//     image: imgPaneer,
 //     altText: "Tandoori Paneer Tikka",
 //   },
 //   {
 //     name: "Punjabi Soya Chap",
 //     price: 30,
 //     description: "Made with Punjabi Spices",
-//     // image: imgSoya,
+//     image: imgSoya,
 //     altText: "Punjabi Soya Chap",
 //   },
 //   {
 //     name: "Kadhai Paneer",
 //     price: 40,
 //     description: "Paneer Specials!!",
-//     // image: imgKadhai,
+//     image: imgKadhai,
 //     altText: "Kadhai Paneer",
 //   },
 //   {
 //     name: "Pasta alla Boscaiola",
 //     price: 40,
 //     description: "Made with dried mushrooms, tomato sauce",
-//     // image: imgItalian1,
+//     image: imgItalian1,
 //     altText: "Pasta alla Boscaiola",
 //   },
 //   {
 //     name: "Macaroni",
 //     price: 40,
 //     description: "Bit of sausage & creamy ricotta tomato",
-//     // image: imgItalian2,
+//     image: imgItalian2,
 //     altText: "Macaroni",
 //   },
 // ];
@@ -75,7 +75,24 @@ import apiRequest from "../../utils/apiRequest.js";
 const Menu = () => {
 
 
-  const [dishes, setdishes] = useState([])
+  const [menuItems, setdishes] = useState([])
+  // const [cart, setCart] = useState([])
+  // const addToCart = (item) => {
+  //   setCart((prevCart) => {
+  //     const existingItem = prevCart.find((cartItem) => cartItem.name === item.name);
+  //     if (existingItem) {
+  //       return prevCart.map((cartItem) =>
+  //         cartItem.name === item.name
+  //           ? { ...cartItem, quantity: cartItem.quantity + 1 }
+  //           : cartItem
+  //       );
+  //     } else {
+  //       return [...prevCart, { ...item, quantity: 1 }];
+  //     }
+  //   });
+  // };
+
+
   useEffect(()=> {
     async function getdishes () {
       const res = await apiRequest.get('/dish');
@@ -103,14 +120,11 @@ const Menu = () => {
       </div>
 
       <div className={menuCSS.Menu_cards}>
-        {dishes.map((item, index) => (
+        {menuItems.map((item, index) => (
           <MenuCard
             key={index}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            image={item.image || null}
-            altText={item.altText}
+            item={item}
+            // addToCart={addToCart}
           />
         ))}
       </div>

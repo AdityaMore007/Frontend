@@ -125,4 +125,8 @@
       font-size: 30px;
     }
   }
-  
+  .cart-summary {
+    text-align: center !important;
+    margin-top: 20px !important;
+    color: white !important;
+  }

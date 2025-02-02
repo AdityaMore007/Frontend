@@ -1,29 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './CartPage.css'; // Ensure this CSS file exists
 import apiRequest from '../../utils/apiRequest.js';
+import UserContext from '../../Context/UserContext.js';
 
-const CartPage = ({userId}) => {
-  // Dummy data for the cart (this can later be replaced by state or context data)
-  // const [cartItems, setCartItems] = useState([
-  //   {
-  //     name: "Spaghetti Bolognese",
-  //     price: 12.99,
-  //     prepTime: 30, // in minutes
-  //     quantity: 2,
-  //   },
-  //   {
-  //     name: "Margherita Pizza",
-  //     price: 10.99,
-  //     prepTime: 20,
-  //     quantity: 1,
-  //   },
-  // ]);
+const CartPage = () => {
 
+  const { user }= useContext(UserContext)
   const [cart, setCart] = useState(null);
 
   useEffect(() => {
     const getCart = async () => {
-      const data = await apiRequest(userId);
+      const data = await apiRequest(user._id);
       setCart(data);
     };
     getCart();

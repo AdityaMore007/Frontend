@@ -5,6 +5,6 @@ const router = new Router()
 router.post('/:id',addUser)
 router.get('/',getallUsers)
 router.get('/:id',getUser)
-// router.get('',)
+
 
 export default router

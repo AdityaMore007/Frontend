@@ -23,6 +23,10 @@
     border-top: 2px dashed rgba(131, 131, 131, 0.5);
 }
 
+.card img{
+    height: 100px;
+    width: 100px;
+}
 .card .info p {
     color: #8b8b87;
 }

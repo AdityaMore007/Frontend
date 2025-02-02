@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import navcss from '../Components/Nav.module.css'
 import { Link } from "react-router-dom";
+import UserContext from "../Context/UserContext";
 
 function Nav () {
-
+    const { user } = useContext(UserContext);
     const menu = useRef();
 
 
@@ -40,9 +41,15 @@ function Nav () {
         {/* <li><Link to="/signup">Signup</Link></li> */}
             </ul>
             <div className={navcss.nav_btns}>
+                if(user){
+                    <img src={user.imageUrl} alt="" />
+                }
+                else{
+
             <Link to="/signup">
                 <button>Sign up <i className="ri-restaurant-2-line"></i></button>
             </Link>
+                }
                 <i className="ri-menu-3-line" id={navcss.bar} onClick={menuhandler}></i>
             </div>
         </div>
