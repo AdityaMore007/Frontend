@@ -64,6 +64,7 @@
   
   .remove-item {
     padding: 10px 15px;
+    margin-right: 10px;
     background-color: #fbe813;
     color: #1c1c1c;
     border: none;

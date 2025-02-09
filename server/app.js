@@ -1,7 +1,7 @@
 import express from "express"
 import userrouter from "./routes/user.js"
-import dishrouter from "./routes/auth.js"
-import authrouter from "./routes/dish.js"
+import authrouter from "./routes/auth.js"
+import dishrouter from "./routes/dish.js"
 import cartrouter from "./routes/cart.js"
 import cors from "cors"
 import dotenv from "dotenv"
@@ -28,7 +28,7 @@ app.use('/api/auth',authrouter)
 app.use('/api/cart',cartrouter)
 
 
-app.listen('3000', () => {
+app.listen(3000, () => {
     connect()
     console.log('server is running on port 3000')
 })

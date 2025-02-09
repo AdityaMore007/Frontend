@@ -23,10 +23,16 @@
     border-top: 2px dashed rgba(131, 131, 131, 0.5);
 }
 
+
 .card img{
     height: 100px;
     width: 100px;
+    transition: transform 0.3s ease;
 }
+
+.card:hover img {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+  }
 .card .info p {
     color: #8b8b87;
 }

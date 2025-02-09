@@ -11,14 +11,14 @@ const CartSchema = new Schema(
     },
     items: [
       {
-        dishId: { type: mongoose.Schema.Types.ObjectId, ref: "Dish", required: true },
+        dishId: { type: mongoose.Schema.Types.ObjectId, ref: "dish", required: true },
         quantity: { type: Number, default: 1 },
       },
     ],
     totalPrice: { type: Number, default: 0 },
     totalCalories: { type: Number, default: 0 },
     totalPrepTime: { type: Number, default: 0 },
-    status: { type: String, default: "Pending" }, // "Pending", "Placed", "Completed", etc.
+    status: { type: String, default: "Pending" }, 
   },
   { timestamps: true }
 );

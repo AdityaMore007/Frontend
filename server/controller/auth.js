@@ -18,6 +18,8 @@ export const login = async (req,res ) => {
         const {password:ps, ...other} = user._doc;
         res.cookie("access_token", token, {
             httpOnly:true,
+            secure: false,
+            sameSite: "lax",
         }).status(200).json(other)
 
     }catch(err){
@@ -25,11 +27,11 @@ export const login = async (req,res ) => {
     }
 }
 export const logout = async(req,res ) => {
-    res.clearCookie("access-token").status(201).json({message: "logout successful"})
+    res.clearCookie("access_token").status(201).json({message: "logout successful"})
 }
 export const signup = async(req,res ) => {
+    console.log(req.body)
     const {username, email, password} = req.body
-
     const  salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
 
@@ -43,6 +45,6 @@ export const signup = async(req,res ) => {
         res.status(200).json(newUser)
 
     }catch(err){
-        console.log(err)
+        console.log('error is gergerg'+err)
     }
 }

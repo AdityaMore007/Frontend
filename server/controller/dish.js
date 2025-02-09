@@ -23,7 +23,7 @@ export const addDish = async (req,res) => {
 export const getDish = async (req,res) => {
     const id = req.params.id
     try {
-        const dish = await Dish.findOneById(id)
+        const dish = await Dish.findById(id)
         res.status(200).json(dish)
     } catch (err) {
         console.log(err)
@@ -31,7 +31,7 @@ export const getDish = async (req,res) => {
 }
 
 export const searchDish = async (req,res) => {
-    const query = req.query.q
+    const {query} = req.query
     try {
         const dish = await Dish.find({
             dishname: { $regex : query, $options: "i"}
@@ -41,3 +41,4 @@ export const searchDish = async (req,res) => {
         console.log(err)
     }
 }
+

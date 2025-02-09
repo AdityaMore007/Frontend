@@ -1,4 +1,4 @@
-/* General Styles for Auth Container */
+
 .signup {
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     justify-content: center;
     /* height: 100vh; */
     margin-top: 100px;
-    background-color: black; /* Changed to black as per reference */
+    background-color: black; 
     padding: 20px;
   }
   
@@ -16,8 +16,7 @@
     align-items: center;
     justify-content: center;
   }
-  
-  /* Button Toggle Styles */
+
   .authToggle {
     display: flex;
     margin-bottom: 20px;
@@ -29,11 +28,11 @@
   }
   
   .authToggle button.active {
-    background-color: var(--primary-color); /* Primary color */
+    background-color: var(--primary-color); 
     color: #fff;
   }
   
-  /* Auth Form Styles */
+  
   .authForm {
     display: flex;
     flex-direction: column;
@@ -53,7 +52,7 @@
     text-align: center;
   }
   
-  /* Input Styles */
+  
   .authForm input {
     width: 100%;
     padding: 10px;
@@ -74,7 +73,7 @@
   }
   
   .authForm input:focus {
-    border-color: var(--primary-color); /* Primary color */
+    border-color: var(--primary-color); 
     outline: none;
   }
   

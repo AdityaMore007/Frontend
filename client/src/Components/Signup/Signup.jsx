@@ -1,18 +1,22 @@
 import React, { useContext, useState } from "react";
-import axios from "axios";
 
-import SignupCSS from "./Signup.module.css"; // Ensure you have the correct CSS file imported
-import UserContext from "../../Context/UserContext";
+
+import SignupCSS from "./Signup.module.css"; 
+import { UserContext } from "../../Context/UserContext";
+import { useNavigate } from "react-router-dom";
+import apiRequest from "../../utils/apiRequest.js";
+// import {UserContext} from "../../Context/UserContext";
 
 const Signup = () => {
 
-  const { login} = useContext(UserContext)
+  const { login } = useContext(UserContext)
   const [isSignup, setIsSignup] = useState(true);
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,41 +26,43 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/signup", {
-        name: formData.name,
+      const response = await apiRequest.post("/auth/signup", {
+        username: formData.username,
         email: formData.email,
         password: formData.password,
       });
-      // alert("Sign-up successful!");
-      if(response.success){
+   
+      if(response.data){
 
-        login(response.user);
+        login(response.data);
+        navigate('/',{ replace: true })
       }
       console.log(response.data);
     } catch (error) {
       console.error("Error during sign-up:", error.response?.data || error.message);
-      alert("Sign-up failed. Please try again.");
+ 
     }
   };
 
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/signin", {
-        email: formData.email,
+      const response = await apiRequest.post("/auth/login", {
+        username: formData.username,
         password: formData.password,
       });
-      // alert("Login successful!");
-      console.log(response.data);
-      // Save the token or user info to localStorage or context if required
-      if(response.success){
 
-        login(response.user);
+      console.log(response.data);
+
+      if(response.data){
+
+        login(response.data);
+        navigate('/',{ replace: true })
       }
-      // localStorage.setItem("token", response.data.token);
+
     } catch (error) {
       console.error("Error during login:", error.response?.data || error.message);
-      alert("Login failed. Please check your credentials.");
+     
     }
   };
 
@@ -111,10 +117,10 @@ const Signup = () => {
           <form onSubmit={handleSignin}>
             <h1 className={SignupCSS.formTitle}>Login</h1>
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
+              type="username"
+              name="username"
+              placeholder="username"
+              value={formData.username}
               onChange={handleChange}
               required
             />

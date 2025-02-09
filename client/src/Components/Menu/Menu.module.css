@@ -17,8 +17,11 @@
 .Menu_wrapper  input{
     background-color: #fff;
     width: 300px;
-    height: 40px;
-    border-radius: 5px;
+    height: 45px;
+    margin-top:0 ;
+    /* border-radius: 5px; */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius:5px ;
     outline: 0;
     border: 0;
     padding-left: 15px;
@@ -26,7 +29,10 @@
     font-weight: 500;
     color: rgba(221, 231, 231, );
 }
-
+.Menu_wrapper .search{
+    display: flex;
+    align-items: center;
+}
 .Menu_wrapper h1 span {
     font-family: 'Cormorant Garamond';
     color: #fbe813;

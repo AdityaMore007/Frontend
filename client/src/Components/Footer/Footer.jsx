@@ -2,8 +2,7 @@ import React from 'react'
 
 import footerCSS from './../Footer/Footer.module.css'
 
-import post1 from './../../assets/domino-s-pizza.jpg'
-import post2 from './../../assets/pizza12.jpg'
+
 import footerElement from './../../assets/delivery2.jpg'
 
 function Footer () {
@@ -39,26 +38,7 @@ function Footer () {
             <p><a href="">Branches</a></p>
         </div>
 
-        <div className={footerCSS.footer_links}>
-            <h4>Recent Post</h4>
-
-            <div className={footerCSS.Post_container}>
-                <img src={post1} alt="blog-post" />
-                <div className={footerCSS.footer_info}>
-                    <small><i className='ri-calender-line'></i>March 27 ,24</small>
-                    <h4>Dining In Paris - </h4>
-                    <h4>Explore Them in Town</h4>
-                </div>
-            </div>
-            <div className={footerCSS.Post_container}>
-                <img src={post2} alt="blog-post" />
-                <div className={footerCSS.footer_info}>
-                    <small><i className='ri-calender-line'></i>March 27 ,24</small>
-                    <h4>MouthWatering Recipes -  </h4>
-                    <h4>For Home Cooking</h4>
-                </div>
-            </div>
-        </div>
+        
     </div>
   )
 }
